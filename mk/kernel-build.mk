@@ -9,7 +9,7 @@ include $(ADK_TOPDIR)/mk/kernel-vars.mk
 ifeq ($(ADK_TARGET_KERNEL_USE_CUSTOMCONFIG),y)
 KERNEL_MODULES_USED:=$(shell grep -s =m $(ADK_TOPDIR)/$(ADK_TARGET_KERNEL_CUSTOMCONFIG_PATH))
 else
-KERNEL_MODULES_USED:=$(shell grep ^ADK_$(ADK_TARGET_OS)_KERNEL $(ADK_TOPDIR)/.config|grep =m)
+KERNEL_MODULES_USED:=$(shell grep -i ^ADK_$(ADK_TARGET_OS)_KERNEL $(ADK_TOPDIR)/.config|grep =m)
 endif
 
 KERNEL_FILE:=$(ADK_TARGET_KERNEL)
